@@ -1,48 +1,37 @@
 package com.samples.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-
-
-
-/**
- * @author skanniah
- *
- */
 @Entity
-@Table(name="DEPARTMENT")
+@Table(name = "DEPARTMENT")
 public class Department implements Serializable {
 
 	private static final long serialVersionUID = 619193918993165386L;
 
-	@Column(name="DEPT_ID")
+	@Column(name = "DEPT_ID")
 	@Id
 	private Integer deptId;
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	private String name;
-	
-	@Column(name="location_id")
+
+	@Column(name = "location_id")
 	private Integer locationId;
-	
-	@OneToMany(mappedBy="department")
+
+	@OneToMany(mappedBy = "department")
 	@Cascade(CascadeType.ALL)
 	private Set<Employee> employees;
-	
+
 	public Integer getDeptId() {
 		return deptId;
 	}
@@ -74,5 +63,5 @@ public class Department implements Serializable {
 	public void setEmployees(Set<Employee> employees) {
 		this.employees = employees;
 	}
-	
+
 }

@@ -10,19 +10,6 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd 
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<jaxrs:server id="employeeContainer" address="/">
-		<jaxrs:serviceBeans>
-			<ref bean="employeeService" />
-		</jaxrs:serviceBeans>
-		<jaxrs:extensionMappings>
-			<entry key="xml" value="application/xml" />
-			<entry key="json" value="application/json" />
-		</jaxrs:extensionMappings>
-		<jaxrs:providers>
-			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
-		</jaxrs:providers>
-	</jaxrs:server>
-	
-	<jaxws:endpoint id="employeeServiceSOAP"
-		implementor="#employeeServiceWS" address="/soapservices" />
+	<jaxws:endpoint id="daiWebServiceSOAP"
+		implementor="#daiWebServiceService" address="/soapservices" />
 </beans>

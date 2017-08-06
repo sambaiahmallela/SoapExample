@@ -25,7 +25,6 @@ public class DaiWebServiceServiceImpl implements DaiWebServiceService {
 	public DAIResponse getEmployee(String empId) {
 		DAIResponse empWebResponse = new DAIResponse();
 		//empWebResponse.setEmployeeId(Integer.valueOf(empId));
-		System.out.println();
 		try {
 			empWebResponse = employeeBO.getEmployee(Integer.valueOf(empId));
 		} catch (Exception e) {
